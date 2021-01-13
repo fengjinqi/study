@@ -238,6 +238,7 @@ sum(1, 2);
 **函数表达式**
 
 ```javascript
+
 let mySum: (x: number, y: number) => number = function (x: number, y: number): number {
     return x + y;
 };
@@ -282,4 +283,166 @@ function reverse(x: number | string): number | string {
         return x.split('').reverse().join('');
     }
 }
+```
+
+## 断言
+
+语法：**值 as 类型**
+
+## 引入文件
+当使用第三方库时，我们需要引用它的声明文件，才能获得对应的代码补全、接口提示等功能。
+
+declare var 声明全局变量
+
+declare function 声明全局方法
+
+declare class 声明全局类
+
+declare enum 声明全局枚举类型
+
+declare namespace 声明（含有子属性的）全局对象
+
+interface 和 type 声明全局类型
+
+export 导出变量
+
+export namespace 导出（含有子属性的）对象
+
+export default ES6 默认导出
+
+export = commonjs 导出模块
+
+export as namespace UMD 库声明全局变量
+
+declare global 扩展全局变量
+
+declare module 扩展模块
+
+/// <reference /> 三斜线指令
+
+**全局声明变量**
+```javascript
+declare var jQuery: (selector: string) => any;
+
+jQuery('#foo');
+```
+而当我们使用 const 定义时，表示此时的全局变量是一个常量，不允许再去修改它的值了
+```javascript
+declare const jQuery: (selector: string) => any;
+
+jQuery('#foo');
+// 使用 declare const 定义的 jQuery 类型，禁止修改这个全局变量
+jQuery = function(selector) {
+    return document.querySelector(selector);
+};
+```
+需要注意的是，声明语句中只能定义类型，切勿在声明语句中定义具体的实现
+
+**declare function**
+
+declare function 用来定义全局函数的类型。jQuery 其实就是一个函数，所以也可以用 function 来定义：
+```javascript
+declare function jQuery(selector: string): any;
+//也可以支持重载
+declare function jQuery(domReadyCallback: () => any): any;
+```
+
+**declare class**
+
+当全局变量是一个类的时候，我们用 declare class 来定义它的类型
+
+```javascript
+declare class Animal {
+    name: string;
+    constructor(name: string);
+    sayHi(): string;
+}
+let cat = new Animal('Tom');
+```
+同样的，declare class 语句也只能用来定义类型，不能用来定义具体的实现，比如定义 sayHi 方法的具体实现则会报错
+
+**declare enum**
+
+使用 declare enum 定义的枚举类型也称作外部枚举（Ambient Enums），举例如下
+
+```javascript
+declare enum Directions {
+    Up,
+    Down,
+    Left,
+    Right
+}
+let directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
+```
+与其他全局变量的类型声明一致，declare enum 仅用来定义类型，而不是具体的值。
+
+**declare namespace**
+
+命名空间
+
+```javascript
+declare namespace jQuery {
+    function ajax(url: string, settings?: any): void;
+}
+
+jQuery.ajax('/api/xxx');
+```
+**interface 和 type**
+除了全局变量之外，可能有一些类型我们也希望能暴露出来。在类型声明文件中，我们可以直接使用 interface 或 type 来声明一个全局的接口或类型
+```javascript
+
+interface AjaxSettings {
+    method?: 'GET' | 'POST'
+    data?: any;
+}
+declare namespace jQuery {
+    function ajax(url: string, settings?: AjaxSettings): void;
+}
+这样的话，在其他文件中也可以使用这个接口或类型了：
+
+let settings: AjaxSettings = {
+    method: 'POST',
+    data: {
+        name: 'foo'
+    }
+};
+jQuery.ajax('/api/xxx', settings);
+```
+
+**混用 declare 和 export**
+
+```javascript
+
+declare const name: string;
+declare function getName(): string;
+declare class Animal {
+    constructor(name: string);
+    sayHi(): string;
+}
+declare enum Directions {
+    Up,
+    Down,
+    Left,
+    Right
+}
+interface Options {
+    data: any;
+}
+
+export { name, getName, Animal, Directions, Options };
+
+```
+
+## DOM 和 BOM 的内置对象
+
+DOM 和 BOM 提供的内置对象有：
+
+Document、HTMLElement、Event、NodeList 等。
+
+```javascript
+let body: HTMLElement = document.body;
+let allDiv: NodeList = document.querySelectorAll('div');
+document.addEventListener('click', function(e: MouseEvent) {
+  // Do something
+});
 ```
