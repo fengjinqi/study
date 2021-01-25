@@ -1,2 +1,3 @@
-# study
-前端/vue/react/ts/js，后台Java/springboot/springcloud/python/django等学习
+# 前端
+
+**[Typescript](https://github.com/fengjinqi/study/tree/main/%E5%89%8D%E7%AB%AF/TypeScript 'typescript')**
