@@ -29,7 +29,7 @@ handleEvent(document.getElementById('hello'), 'scroll');  // 没问题
 handleEvent(document.getElementById('world'), 'dblclick'); // 报错，event 不能为 'dblclick'
 ```
 
-#元组
+# 元组
 
 ```javascript
 let tom: [string, number] = ['Tom', 25];
@@ -37,7 +37,7 @@ let tom: [string, number] = ['Tom', 25];
 当赋值或访问一个已知索引的元素时，会得到正确的类型,也可以只赋值其中一项,但是当直接对元组类型的变量进行初始化或者赋值的时候，需要提供所有元组类型中指定的项。
 
 
-#枚举
+# 枚举
 
 枚举（Enum）类型用于取值被限定在一定范围内的场景
 
@@ -451,7 +451,7 @@ function createArray<T = string>(length: number, value: T): Array<T> {
 }
 
 ```
-#声明合并
+# 声明合并
 **函数的合并**
 我们可以使用重载定义多个函数类型
 ```javascript

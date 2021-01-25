@@ -26,5 +26,19 @@
 #进阶
 
 本部分介绍一些高级的类型与技术，具体内容包括
+**[类型别名](https://github.com/fengjinqi/study/tree/main/%E5%89%8D%E7%AB%AF/TypeScript/%E8%BF%9B%E9%98%B6#%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D "类型别名")**
 
+**[字符串字面量类型](https://github.com/fengjinqi/study/tree/main/%E5%89%8D%E7%AB%AF/TypeScript/%E8%BF%9B%E9%98%B6#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E9%9D%A2%E9%87%8F%E7%B1%BB%E5%9E%8B "字符串字面量类型")**
+
+**[元组](https://github.com/fengjinqi/study/tree/main/%E5%89%8D%E7%AB%AF/TypeScript/%E8%BF%9B%E9%98%B6#%E5%85%83%E7%BB%84 "元组")**
+
+**[枚举](https://github.com/fengjinqi/study/tree/main/%E5%89%8D%E7%AB%AF/TypeScript/%E8%BF%9B%E9%98%B6#%E6%9E%9A%E4%B8%BE "枚举")**
+
+**[类](https://github.com/fengjinqi/study/tree/main/%E5%89%8D%E7%AB%AF/TypeScript/%E8%BF%9B%E9%98%B6#%E7%B1%BB "类")**
+
+**[类与接口](https://github.com/fengjinqi/study/tree/main/%E5%89%8D%E7%AB%AF/TypeScript/%E8%BF%9B%E9%98%B6#%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3 "类与接口")**
+
+**[泛型](https://github.com/fengjinqi/study/tree/main/%E5%89%8D%E7%AB%AF/TypeScript/%E8%BF%9B%E9%98%B6#%E6%B3%9B%E5%9E%8B "泛型")**
+
+**[声明合并(https://github.com/fengjinqi/study/tree/main/%E5%89%8D%E7%AB%AF/TypeScript/%E8%BF%9B%E9%98%B6#%E5%A3%B0%E6%98%8E%E5%90%88%E5%B9%B6 "声明合并")**
 
